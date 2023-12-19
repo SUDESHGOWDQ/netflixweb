@@ -1,0 +1,50 @@
+.cast{
+    height: auto;
+    width: 100%;
+    color: white;
+}
+
+
+.cast_Container{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 70%;
+    gap: 10px;
+    margin: auto;
+    padding-top: 100px;
+}
+
+
+.cast_img img{
+    height: 250px;
+    width: 250px;
+    border-radius:50%;
+    object-fit: cover;
+
+}
+
+.cast_Contents h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.cast_Contents p{
+    font-size: 30px;
+}
+
+.Cast_movie{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.Cast_movie img{
+    border-radius: 20px;
+}
