@@ -1,6 +1,7 @@
 import axios from '../axios'
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import './Cast.css'
 
@@ -8,6 +9,7 @@ import './Cast.css'
 const Cast = () => {
     const {castId,castName} =useParams()
     const [castDtl,setCastDtl]=useState([]);
+    const navigate = useNavigate()
 
     const baseUrl = "https://image.tmdb.org/t/p/original/"
 
@@ -15,7 +17,7 @@ const Cast = () => {
 
     useEffect(()=>{
         async function fetchCastDetails(){
-            const getData=await axios.get(`https://api.themoviedb.org/3/search/person?api_key=ab1da08307f82007e9975d4dccf67670&include_adult=false&language=en-US&page=1&query=${castName}`)
+            const getData=await axios.get(`https://api.themoviedb.org/3/search/person?api_key=ab1da08307f82007e9975d4dccf67670&query=${castName}`)
             setCastDtl(getData.data.results)
             console.log(getData)
         }
@@ -44,7 +46,7 @@ const Cast = () => {
                 castDtl.map((movie,i)=>{
                     return(
                         <div key={movie.id}>
-                        <img alt='' src={`${baseUrl}${movie.known_for[i].poster_path}`} style={{width:"250px",height:"250px"}} />
+                        <img alt='' onClick={()=>navigate('/movie')} src={`${baseUrl}${movie.known_for[i].poster_path}`} style={{width:"250px",height:"250px"}} />
                         <p>{movie.original_title || movie.name || movie.title}</p>
                         <p>{movie.vote_average}🌟</p>
                         </div>
